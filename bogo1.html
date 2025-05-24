@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BOGO Offer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffffff34;
+      padding: 20px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: auto;
+      border: 1px solid #eee;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #340edd;
+      margin-bottom: 20px;
+    }
+
+    .option {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .option input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    .discount-tag {
+      background: #210be7;
+      color: #fff;
+      padding: 2px 8px;
+      font-size: 12px;
+      border-radius: 5px;
+      margin-left: 5px;
+    }
+
+    .most-popular {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: #1c06e0;
+      color: white;
+      padding: 3px 10px;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 10px;
+    }
+
+    .price {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .old-price {
+      text-decoration: line-through;
+      font-size: 14px;
+      color: #aaa;
+      margin-left: 5px;
+    }
+
+    select {
+      margin: 5px 5px 5px 0;
+      padding: 5px;
+    }
+
+    .free-delivery {
+      color: #360ee6;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .total {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .add-to-cart {
+      background: #3207f1;
+      color: white;
+      padding: 12px;
+      border: none;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .powered {
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2> It's time for BOGO</h2>
+
+    <div class="option">
+      <label>
+        <input type="radio" name="unit" value="1" checked onclick="updateTotal(1)">
+        1 Unit <span class="discount-tag">10% Off</span><br/>
+        <span class="price">$10.00 USD</span>
+        <span class="old-price">$12.00 USD</span>
+      </label>
+    </div>
+
+    <div class="option">
+      <div class="most-popular">MOST POPULAR</div>
+      <label>
+        <input type="radio" name="unit" value="2" onclick="updateTotal(2)">
+        2 Unit <span class="discount-tag">20% Off</span><br/>
+        <span class="price">$18.00 USD</span>
+        <span class="old-price">$24.00 USD</span>
+      </label>
+      <div>
+        Size: 
+        <select>
+          <option>S</option>
+          <option>M</option>
+          <option>L</option>
+        </select>
+        Colour:
+        <select>
+          <option>Red</option>
+          <option>Green</option>
+        </select>
+      </div>
+      <div>
+        Size: 
+        <select>
+          <option>S</option>
+          <option>M</option>
+          <option>L</option>
+        </select>
+        Colour:
+        <select>
+          <option>Red</option>
+          <option>Green</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="option">
+      <label>
+        <input type="radio" name="unit" value="3" onclick="updateTotal(3)">
+        3 Unit <span class="discount-tag">30% Off</span><br/>
+        <span class="price">$24.00 USD</span>
+        <span class="old-price">$36.00 USD</span>
+      </label>
+    </div>
+
+    <div class="free-delivery">Free Delivery</div>
+    <div class="total" id="total">Total: $10.00 USD</div>
+    <button  onclick class="add-to-cart">+ Add to Cart</button>
+    
+
+    <div class="powered">Powered by Pumper</div>
+  </div>
+
+  <script>
+    const totalDisplay = document.getElementById("total");
+    function updateTotal(units) {
+      const prices = {
+        1: "$10.00 USD",
+        2: "$18.00 USD",
+        3: "$24.00 USD"
+      };
+      totalDisplay.textContent = `Total: ${prices[units]}`;
+    }
+  </script>
+</body>
+</html>
